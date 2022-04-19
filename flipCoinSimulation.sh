@@ -2,6 +2,7 @@
 h=0
 t=0
 
+function flipcoin() {
 
 while [ $h -le 21 ] || [ $t -le 21 ]
 do
@@ -27,9 +28,14 @@ diff=`expr $h - $t`
 elif [ $t -eq 21 ]
 then
 diff1=`expr $t - $h`
-	echo "Tell Won by $diff1 points"
+	echo "Tail Won by $diff1 points"
 elif [ $h -eq $t ]
 then
 	echo "Tie"
 fi
+}
 
+if [ $h -eq $t ]
+then
+	flipcoin=(( flipcoin++2 ))
+fi
